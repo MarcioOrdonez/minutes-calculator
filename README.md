@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Minutes Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sweet little React calculator for adding or subtracting minutes and seconds.
+It is styled with soft pinks, dreamy purples, bold black accents, and a tiny
+Kuromi-inspired mascot moment.
 
-Currently, two official plugins are available:
+## What It Does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add two time values together.
+- Subtract one time value from another.
+- Enter minutes and seconds separately.
+- See the result normalized as `minutes:seconds`, like `17:15` or `-1:35`.
+- Clear everything and start fresh.
+- Enjoy a cute responsive layout on desktop and mobile.
 
-## React Compiler
+## Preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Try examples like:
 
-## Expanding the ESLint configuration
+- `12:30 + 4:45 = 17:15`
+- `1:05 - 2:40 = -1:35`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Install dependencies:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Start the dev server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+## Built With
+
+- React
+- TypeScript
+- Vite
+- CSS with a pastel-punk pink and purple vibe
+
+## Project Structure
+
+```text
+src/
+  App.tsx      # Calculator logic and UI
+  App.css      # Cute calculator styling
+  index.css    # Global page styles
+```
+
+## Notes
+
+Seconds can be bigger than `59`; the calculator will still normalize the final
+answer. For example, `1 minute 90 seconds` is treated as `2:30`.
